@@ -36,6 +36,7 @@ int main()
         {
             case 1:
             cryptage(&cle[0],&txt[0],&resultat[0]);
+            ecriture("crypt.txt",resultat);
             printf("resultat encrypte : %s",resultat);
             break;
 
@@ -109,7 +110,7 @@ void lecture(const char* fileN, const char *txt)
     fp=fopen(fileN,"r");
     if (fp == NULL)
     {
-        printf("Err Open !");
+        printf("Erreur ouverture !");
     }
     while (fgets(chaine,2000,fp) != NULL)
     {
@@ -121,5 +122,21 @@ void lecture(const char* fileN, const char *txt)
     fclose(fp);
 }
 
+void ecriture (const char* fileN,const char txt[])
+{
+    FILE *fp;
+    unsigned char *cpT=NULL;
+    unsigned char *cpR=NULL;
+
+    cpT=txt;
+    fp = fopen(fileN, "w+");
+    if (fp == NULL)
+    {
+        printf("Erreur ouverture %s\n",fileN);
+    }
+    fputs(txt,fp);
+    fclose(fp);
+
+}
 
 
