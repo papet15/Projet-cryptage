@@ -4,14 +4,6 @@
 
 
 
-
-
-
-//pR='\0';
-
-
-
-
 int main()
 {
     unsigned char cle[200]="";
